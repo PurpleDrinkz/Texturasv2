@@ -3,14 +3,17 @@
 //Atributos de entrada
 layout(location = 0) in vec4 posicion;
 in vec4 color;
+in vec2 coordenadaUV;
+
 
 uniform mat4 modelo;
 uniform mat4 vista;
 uniform mat4 proyeccion;
+uniform sampler2D samplerImagen;
 
 //Atributos
 out vec4 fragmentColor;
-
+out vec2 fragmentCoordenadaUV;
 
 //Funcion main
 void main() { 
@@ -22,5 +25,8 @@ void main() {
 
 	//Establecer valor de fragmentos
 	fragmentColor = color;
+
+	//Establecer el valor fragmentCoordenadaUV
+	fragmentCoordenadaUV = coordenadaUV;
 
 }
