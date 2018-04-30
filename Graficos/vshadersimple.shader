@@ -13,7 +13,7 @@ out vec4 fragmentColor;
 
 
 //Funcion main
-void main() {
+void main() { 
 	//crear la matris MVP
 	mat4 MVP = proyeccion * vista * modelo;
 	//La posicion de salida del Vertice
