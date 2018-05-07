@@ -14,9 +14,9 @@
 using namespace std;
 
 class Modelo {
-public: 
+public:
 	vector<Vertice> vertices;
-	GLuint modeloID; 
+	GLuint modeloID;
 	GLuint vistaID;
 	GLuint proyeccionID;
 
@@ -27,9 +27,13 @@ public:
 	Shader *shader;
 	GLuint vertexArrayID;
 	GLuint bufferID;
+
+	GLuint uvBufferID;
+	vector<vec2> mapaUV;
+	
 	Modelo();
 
-	void inicializarVertexArray(GLuint posicionID, GLuint colorID, GLuint modeloID, GLuint vistaID, GLuint proyeccionID);
+	void inicializarVertexArray(GLuint posicionID, GLuint colorID, GLuint modeloID, GLuint vistaID, GLuint proyeccionID, GLuint uvID, GLuint samplerImageID, GLuint texturaID);
 	void dibujar(GLenum modoDibujo);
 
 

@@ -28,6 +28,10 @@ GLuint ModeloID;
 GLuint vistaID;
 GLuint proyeccionID;
 
+GLuint coordenadasUVID;
+GLuint samplerImagenID;
+GLuint texturaUnoID;
+
 float camaraX = 3.0f;
 float camaraY = 5.0f;
 float camaraZ = 9.0f;
@@ -86,6 +90,57 @@ void actualizar() {
 		vec3(0.0f, 1.0f, 0.0f));
 
 	cuadrado->vista = vista;
+	cuadrado->proyeccion = proyeccion;
+
+	cuadrado->mapaUV.push_back(vec2(0.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(1.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(0.0f, 1.0f));
+
+	cuadrado->mapaUV.push_back(vec2(0.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(1.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(0.0f, 1.0f));
+
+	cuadrado->mapaUV.push_back(vec2(0.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(1.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(0.0f, 1.0f));
+
+	cuadrado->mapaUV.push_back(vec2(0.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(1.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(0.0f, 1.0f));
+
+	cuadrado->mapaUV.push_back(vec2(0.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(1.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(0.0f, 1.0f));
+
+	cuadrado->mapaUV.push_back(vec2(0.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(1.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(0.0f, 1.0f));
+
+	cuadrado->mapaUV.push_back(vec2(0.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(1.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(0.0f, 1.0f));
+
+	cuadrado->mapaUV.push_back(vec2(0.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(1.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(0.0f, 1.0f));
+
+	cuadrado->mapaUV.push_back(vec2(0.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(1.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(0.0f, 1.0f));
+
+	cuadrado->mapaUV.push_back(vec2(0.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(1.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(0.0f, 1.0f));
+
+	cuadrado->mapaUV.push_back(vec2(0.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(1.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(0.0f, 1.0f));
+
+	cuadrado->mapaUV.push_back(vec2(0.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(1.0f, 0.0f));
+	cuadrado->mapaUV.push_back(vec2(0.0f, 1.0f));
+
+
 };
 
 void dibujar() {
@@ -222,11 +277,16 @@ int main()
 	vistaID = glGetUniformLocation(shader->getID(), "vista");
 	proyeccionID = glGetUniformLocation(shader->getID(), "proyeccion");
 
+	samplerImagenID = glGetUniformLocation(shader->getID(), "samplerImagen");
+	coordenadasUVID = glGetAttribLocation(shader->getID(), "coordenadaUV");
+
+	texturaUnoID = Shader::cargarBMP("texturas\\dibujo.bmp");
+
 	//Desenlazar el shader
 	shader->desenlazarShader();
 
 	cuadrado->shader = shader;
-	cuadrado->inicializarVertexArray(posicionID, colorID,ModeloID,vistaID,proyeccionID);
+	cuadrado->inicializarVertexArray(posicionID, colorID,ModeloID,vistaID,proyeccionID, samplerImagenID, coordenadasUVID, texturaUnoID);
 
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
