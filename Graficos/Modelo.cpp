@@ -46,7 +46,7 @@ void Modelo::inicializarVertexArray(GLuint posicionID, GLuint colorID, GLuint mo
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 } 
-
+ 
 void Modelo::dibujar(GLenum modoDibujo) {
 	shader->enlazarShader();
 	glBindVertexArray(vertexArrayID);
